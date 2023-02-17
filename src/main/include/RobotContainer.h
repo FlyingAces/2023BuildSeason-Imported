@@ -12,7 +12,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 #include <frc2/command/Command.h>
-#include <frc2/command/button/Button.h>
+#include <frc2/command/button/Trigger.h>
 
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"
@@ -52,8 +52,9 @@ class RobotContainer {
 
   // Create controller and button objects
   frc::XboxController m_DriverController{0};
-  frc2::Button m_DriverButtonY { [&] { return m_DriverController.GetYButton(); }};
-  frc2::Button m_DriverButtonA { [&] { return m_DriverController.GetAButton(); }};
+  frc2::Trigger m_DriverYButton{[&] { return m_DriverController.GetYButton(); }};
+  frc2::Trigger m_DriverAButton{[&] { return m_DriverController.GetAButton(); }};
+
 
   // Create subsystem objects
   DriveTrainSubsystem m_DriveTrain{&m_DriverController};
