@@ -42,6 +42,9 @@ namespace ARM_PID_CONST
     const double EXTEND_R_TOL = 100;
     const double EXTEND_A_TOL = 10;
 
+    // Extension rotation values needed for game pieces
+    const double EX_CONE_TOP = 10;
+
     // Tilt Mechanism PID values
     const double TILT_P = 0.01;
     const double TILT_I = 0;
@@ -50,6 +53,9 @@ namespace ARM_PID_CONST
     // Tilt Rotation and accelleration tollarance values
     const double TILT_R_TOL = 100;
     const double TILT_A_TOL = 10;
+
+    // Tilt rotation values needed for game pieces
+    const double TL_CONE_TOP = 10;
 }
 
 class ArmSubsystem : public frc2::SubsystemBase {
