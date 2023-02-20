@@ -31,6 +31,18 @@ namespace ARM_CONST
     double CLAW_MOTOR_RATIO = 1;
 }
 
+namespace ARM_PID_CONST
+{
+    // Extension Arm PID values
+    double EXTEND_P = 0.01;
+    double EXTEND_I = 0;
+    double EXTEND_D = 0;
+    
+    //Rotation and accelleration tollarance values
+    double EXTEND_R_TOL = 100;
+    double EXTEND_A_TOL = 10;
+}
+
 class ArmSubsystem : public frc2::SubsystemBase {
     public:
     ArmSubsystem(frc::XboxController* p_Controller);
