@@ -7,11 +7,15 @@
 
 #include "subsystems/ArmSubsystem.h"
 
-// Takes in pointer to arm subsystem and target rotation value for extension motor
-// Uses PID control to reach target extension rotations
-class PIDArmExtension : public frc2::CommandHelper<frc2::PIDCommand, PIDArmExtension> {
-     public:
-     PIDArmExtension(ArmSubsystem* arm, double extentionRotations);
+class TurnToAngle : public frc2::CommandHelper<frc2::PIDCommand, TurnToAngle> {
+ public:
+  /**
+   * Turns to robot to the specified angle.
+   *
+   * @param targetAngleDegrees The angle to turn to
+   * @param drive              The drive subsystem to use
+   */
+  TurnToAngle(double target);
 
-     bool IsFinished() override;
+  bool IsFinished() override;
 };
