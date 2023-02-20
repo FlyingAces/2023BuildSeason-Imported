@@ -21,26 +21,26 @@
 namespace ARM_CONST
 {
     // Motor IDs
-    int ARM_EXTENTION_MOTOR_ID = 0;
-    int ARM_TILT_MOTOR_ID = 0;
-    int CLAW_MOTOR_ID = 0;
+    const int ARM_EXTENTION_MOTOR_ID = 0;
+    const int ARM_TILT_MOTOR_ID = 0;
+    const int CLAW_MOTOR_ID = 0;
 
     // Gear Ratios
-    double EXTEND_MOTOR_RATIO = 1;
-    double TILT_MOTOR_RATIO = 1;
-    double CLAW_MOTOR_RATIO = 1;
+    const double EXTEND_MOTOR_RATIO = 1;
+    const double TILT_MOTOR_RATIO = 1;
+    const double CLAW_MOTOR_RATIO = 1;
 }
 
 namespace ARM_PID_CONST
 {
     // Extension Arm PID values
-    double EXTEND_P = 0.01;
-    double EXTEND_I = 0;
-    double EXTEND_D = 0;
+    const double EXTEND_P = 0.01;
+    const double EXTEND_I = 0;
+    const double EXTEND_D = 0;
     
     //Rotation and accelleration tollarance values
-    double EXTEND_R_TOL = 100;
-    double EXTEND_A_TOL = 10;
+    const double EXTEND_R_TOL = 100;
+    const double EXTEND_A_TOL = 10;
 }
 
 class ArmSubsystem : public frc2::SubsystemBase {

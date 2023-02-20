@@ -1,6 +1,6 @@
 #include "commands/ArmCommands/PIDArmExtension.h"
 
-/*PIDArmExtension::PIDArmExtension(ArmSubsystem* arm, double extentionRotations) : CommandHelper{frc2::PIDController{ARM_PID_CONST::EXTEND_P, ARM_PID_CONST::EXTEND_I, ARM_PID_CONST::EXTEND_D},
+PIDArmExtension::PIDArmExtension(ArmSubsystem* arm, double extentionRotations) : CommandHelper{frc2::PIDController{ARM_PID_CONST::EXTEND_P, ARM_PID_CONST::EXTEND_I, ARM_PID_CONST::EXTEND_D},
                     // Close loop on heading
                     [arm] { return arm->getExtentionMotorEncoderPOS(); },
                     // Set reference to target
@@ -13,4 +13,4 @@
 
 bool PIDArmExtension::IsFinished() {
   return GetController().AtSetpoint();
-}*/
+}
