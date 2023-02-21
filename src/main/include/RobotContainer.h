@@ -20,13 +20,14 @@
 #include "subsystems/GyroSubsystem.h"
 #include "subsystems/LimeLightSubsystem.h"
 
-#include "commands/DriveCommands/AutoLevel.h"
+#include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
 #include "commands/AutoCommands/MainAuto.h"
 #include "commands/ArmCommands/PIDArmExtension.h"
 #include "commands/ArmCommands/PIDArmTilt.h"
+#include "commands/LevelCommands/PIDLevel.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -68,7 +69,7 @@ class RobotContainer {
   
 
   // Create Commands
-  AutoLevel m_AutoLevel{&m_DriveTrain, &m_Gyro};
+  PIDLevel m_PIDLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
