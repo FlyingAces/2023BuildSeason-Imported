@@ -6,7 +6,7 @@ PIDLevel::PIDLevel(DriveTrainSubsystem* drive, GyroSubsystem* gyro) : CommandHel
                     // Set reference to target
                     0,
                     // Pipe output to run extenstion motor
-                    [drive](double output) { drive->arcadeDrive(output, 0);},
+                    [drive](double output) { drive->arcadeDrive(-1 * output, 0);},
                     {}} {
   m_controller.SetTolerance(PID_LEVEL_CONST::L_DEG_TOL, PID_LEVEL_CONST::L_ACEL_TOL);
 }

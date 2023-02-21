@@ -31,8 +31,8 @@ DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp
     m_LeftLeader.ConfigOpenloopRamp(0.2);
     m_LeftFollower.ConfigOpenloopRamp(0.2);
 
-    m_RightLeader.SetInverted(true);
-    m_RightFollower.SetInverted(true);
+    m_LeftLeader.SetInverted(true);
+    m_LeftFollower.SetInverted(true);
 
     m_DifferentialDrive.SetSafetyEnabled(false);
 
