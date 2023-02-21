@@ -8,7 +8,7 @@
 
 #include "commands/DriveCommands/DriveStraightPID.h"
 #include "commands/TurnCommands/TurnToAnglePID.h"
-#include "commands/DriveCommands/AutoLevel.h"
+#include "commands/LevelCommands/AutoLevel.h"
 
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"

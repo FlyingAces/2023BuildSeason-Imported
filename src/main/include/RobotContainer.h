@@ -12,17 +12,22 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 
 #include <frc2/command/Command.h>
+#include <frc2/command/SequentialCommandGroup.h>
+#include <frc2/command/ParallelCommandGroup.h>
 #include <frc2/command/button/Trigger.h>
 
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"
 #include "subsystems/LimeLightSubsystem.h"
 
-#include "commands/DriveCommands/AutoLevel.h"
+#include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
 #include "commands/AutoCommands/MainAuto.h"
+#include "commands/ArmCommands/PIDArmExtension.h"
+#include "commands/ArmCommands/PIDArmTilt.h"
+#include "commands/LevelCommands/PIDLevel.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
@@ -58,14 +63,20 @@ class RobotContainer {
 
   // Create subsystem objects
   DriveTrainSubsystem m_DriveTrain{&m_DriverController};
+  ArmSubsystem m_ArmSubsystem{&m_DriverController};
   GyroSubsystem m_Gyro;
   LimeLightSubsystem m_LimeLight;
+  
 
   // Create Commands
-  AutoLevel m_AutoLevel{&m_DriveTrain, &m_Gyro};
+  PIDLevel m_PIDLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
+
+  // Commands for arm mechanism
+  PIDArmExtension m_ArmExtendTopCone{&m_ArmSubsystem, ARM_PID_CONST::EX_CONE_TOP};
+  PIDArmTilt m_ArmTiltTopCone{&m_ArmSubsystem, ARM_PID_CONST::TL_CONE_TOP};
 
   // Drive Straight test when button pressed
   DriveStraightPID m_DriveStraightWhenPress{&m_DriveTrain, 1_m};
