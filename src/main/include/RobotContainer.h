@@ -18,7 +18,7 @@
 #include "subsystems/GyroSubsystem.h"
 #include "subsystems/LimeLightSubsystem.h"
 
-#include "commands/DriveCommands/AutoLevel.h"
+#include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
