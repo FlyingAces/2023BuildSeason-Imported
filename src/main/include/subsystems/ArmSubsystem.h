@@ -106,4 +106,7 @@ class ArmSubsystem : public frc2::SubsystemBase {
     WPI_TalonFX m_TiltMotor{ARM_CONST::ARM_TILT_MOTOR_ID};
     WPI_TalonFX m_ExtentionMotor{ARM_CONST::ARM_TILT_MOTOR_ID};
     rev::CANSparkMax m_ClawMotor{ARM_CONST::CLAW_MOTOR_ID, rev::CANSparkMax::MotorType::kBrushless};
+    
+    // Encoder objects
+    rev::SparkMaxRelativeEncoder m_ClawEncoder = m_ClawMotor.GetEncoder();
 };

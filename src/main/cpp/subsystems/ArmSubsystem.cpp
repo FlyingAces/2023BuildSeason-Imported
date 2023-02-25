@@ -35,8 +35,7 @@ void ArmSubsystem::zeroExtentionMotorEncoder() {
 }
 
 void ArmSubsystem::zeroClawMotorEncoder() {
-    // DONT KNOW HOW TO IMPLIMENT
-    // m_ClawMotor.GetEncoder().SetPosition(0.0);
+    m_ClawEncoder.SetPosition(0.0);
 }
 
 double ArmSubsystem::getTiltMotorEncoderPOS() {
@@ -48,9 +47,7 @@ double ArmSubsystem::getExtentionMotorEncoderPOS() {
 }
 
 double ArmSubsystem::getClawMotorEncoderPOS() {
-    // I DONT KNOW HOW THIS WORKS
-    //return m_ClawMotor.GetEncoder().GetPosition();
-    return 0;
+    return m_ClawEncoder.GetPosition();
 } 
 
 void ArmSubsystem::moveArmWithController() {
