@@ -1,13 +1,14 @@
 #include "commands/AimingCommands/VisionAim.h"
 #include <iostream>
 
-VisionAim::VisionAim(DriveTrainSubsystem* p_DriveTrain, LimeLightSubsystem* p_LimeLight) : mp_Drivetrain{p_DriveTrain}, mp_LimeLight{p_LimeLight} {
+VisionAim::VisionAim(DriveTrainSubsystem* p_DriveTrain, LimeLightSubsystem* p_LimeLight, LimeLightSubsystem::Pipeline pipeline) : mp_Drivetrain{p_DriveTrain}, mp_LimeLight{p_LimeLight}, m_pipeline{pipeline} {
     SetName("VisionAimV1");
     AddRequirements(p_DriveTrain);
 }
 
 void VisionAim::Initialize(){
     mp_Drivetrain->setAutoState(true);
+    mp_LimeLight->setPipeline(m_pipeline);
 }
 
 void VisionAim::Execute(){

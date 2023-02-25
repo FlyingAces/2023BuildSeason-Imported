@@ -9,7 +9,7 @@
 // Uses limelight camera to center robot on target
 class VisionAim : public frc2::CommandHelper<frc2::CommandBase, VisionAim> {
  public:
-    explicit VisionAim(DriveTrainSubsystem* p_DriveTrain, LimeLightSubsystem* p_LimeLight);
+    explicit VisionAim(DriveTrainSubsystem* p_DriveTrain, LimeLightSubsystem* p_LimeLight, LimeLightSubsystem::Pipeline pipeline);
     void Initialize() override;
     void Execute() override;
     bool IsFinished() override;
@@ -18,6 +18,7 @@ class VisionAim : public frc2::CommandHelper<frc2::CommandBase, VisionAim> {
  private:
  DriveTrainSubsystem* mp_Drivetrain;
  LimeLightSubsystem* mp_LimeLight;
+ LimeLightSubsystem::Pipeline m_pipeline;
  double leftSteer;
  double rightSteer;
  double steerAjust;
