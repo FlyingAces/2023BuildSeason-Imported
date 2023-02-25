@@ -20,6 +20,10 @@ class LimeLightSubsystem : public frc2::SubsystemBase {
         vision, driveCam
     };
 
+    enum Pipeline{
+        refTape, aprilTag
+    };
+
     // Returns horizontal offset from crosshair to target [-27, 27] degrees
     double getX();
 
@@ -35,10 +39,12 @@ class LimeLightSubsystem : public frc2::SubsystemBase {
     // Sets limelight's LED state
     void setLED(LEDMode mode);
 
-    // Sets limelight pipeline
+    // Sets limelight camera mode
     // 0 vision procesing
     // 1 driver camera (disables vision processing)
     void setMode(CamMode mode);
+
+    void setPipeline(Pipeline mode);
 
     void Periodic() override;
 
