@@ -22,6 +22,7 @@
 
 #include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
+#include "commands/ArmCommands/MoveArmWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
 #include "commands/AutoCommands/MainAuto.h"
@@ -71,6 +72,7 @@ class RobotContainer {
   // Create Commands
   PIDLevel m_PIDLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
+  MoveArmWithController m_MoveArmWithController{&m_ArmSubsystem};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
 

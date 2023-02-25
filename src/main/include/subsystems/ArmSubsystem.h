@@ -92,9 +92,15 @@ class ArmSubsystem : public frc2::SubsystemBase {
     // Returns encoder position of claw motor
     double getClawMotorEncoderPOS();
 
+    void moveArmWithController();
+
     private:
     // Xbox controller
     frc::XboxController* mp_Controller;
+
+    // Drive with controller values;
+    double tiltWithController;
+    double extendWithController;
 
     // Motor objects
     WPI_TalonFX m_TiltMotor{ARM_CONST::ARM_TILT_MOTOR_ID};

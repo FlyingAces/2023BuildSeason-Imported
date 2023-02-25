@@ -8,6 +8,7 @@ RobotContainer* RobotContainer::mp_RobotContainer = NULL;
 RobotContainer::RobotContainer() {
   // Set drive with controller to run as default
   m_DriveTrain.SetDefaultCommand(std::move(m_DriveWithController));
+  m_ArmSubsystem.SetDefaultCommand(std::move(m_MoveArmWithController));
   // Set auto state to false
   m_DriveTrain.setAutoState(false);
 

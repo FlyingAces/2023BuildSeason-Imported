@@ -51,4 +51,12 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
     // I DONT KNOW HOW THIS WORKS
     //return m_ClawMotor.GetEncoder().GetPosition();
     return 0;
-}  
+} 
+
+void ArmSubsystem::moveArmWithController() {
+    extendWithController = (mp_Controller->GetRightBumper() * 0.5) - (mp_Controller->GetLeftBumper() * 0.5);
+    tiltWithController = mp_Controller->GetRightY();
+    
+    runExtentionMotor(extendWithController);
+    runTiltMotor(tiltWithController);
+}
