@@ -7,7 +7,6 @@
 DriveStraightPID::DriveStraightPID(DriveTrainSubsystem* mp_drive, units::meter_t target) : CommandHelper(
           frc::ProfiledPIDController<units::meters>(PID_DRIVE_CONSTANTS::DRIVE_P , PID_DRIVE_CONSTANTS::DRIVE_I, PID_DRIVE_CONSTANTS::DRIVE_D, {PID_DRIVE_CONSTANTS::MAX_SPEED, PID_DRIVE_CONSTANTS::MAX_ACCEL}),
           // Close loop on heading
-          // Negitive To Fix Direction
           [mp_drive] { return ((mp_drive->getRightDist()+mp_drive->getLeftDist())/2); },
           // Set reference to target
           target,
