@@ -36,6 +36,11 @@ DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp
 
     m_DifferentialDrive.SetSafetyEnabled(false);
 
+    m_RightLeader.SetSelectedSensorPosition(0.0);
+    m_RightFollower.SetSelectedSensorPosition(0.0);
+    m_LeftLeader.SetSelectedSensorPosition(0.0);
+    m_LeftFollower.SetSelectedSensorPosition(0.0);
+
     setAutoState(false);
 }
 
@@ -49,6 +54,10 @@ void DriveTrainSubsystem::driveWithController() {
   m_controllerDriveSpeed = (mp_Controller->GetLeftTriggerAxis() - mp_Controller->GetRightTriggerAxis()) * m_DriveSpeedMult;
   m_controllerRotation = mp_Controller->GetLeftX() * m_RotationSpeedMult;
   m_DifferentialDrive.ArcadeDrive(m_controllerDriveSpeed, m_controllerRotation, false);
+
+  // Prints for debug
+  std::cout << "LeftDist M: " << this->getLeftDist().value() << std::endl;
+  std::cout << "RighDist M: " << this->getLeftDist().value() << std::endl;
 }
 
 void DriveTrainSubsystem::tankDrive(double left, double right){
@@ -82,11 +91,11 @@ void DriveTrainSubsystem::toggleDriveMode(){
 }
 
 units::meter_t DriveTrainSubsystem::getLeftDist() {
-  return units::meter_t((m_LeftLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_IN));
+  return units::meter_t((m_LeftLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M));
 }
 
 units::meter_t DriveTrainSubsystem::getRightDist() {
-  return units::meter_t((m_RightLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_IN));
+  return units::meter_t((m_RightLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M));
 }
 
 void DriveTrainSubsystem::Periodic() {

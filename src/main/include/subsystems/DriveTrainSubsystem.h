@@ -24,8 +24,8 @@ namespace DT_CONSTANTS {
     const int LEFT_LEADER = 1;
     const int LEFT_FOLLOWER = 2;
 
-    // Diameter of our wheels in inches
-    const double WHEEL_DIAMETER_IN = 6.0;
+    // Diameter of our wheels in meters
+    const double WHEEL_DIAMETER_M = 0.1524;
     // The amount of encoder pulses produced per revolution of the motors
     const int PULSES_PER_REV = 2048;
     // The number of motor revolutions per revolution of the drive train wheels
