@@ -8,7 +8,7 @@ PIDArmExtension::PIDArmExtension(ArmSubsystem* arm, double extentionRotations) :
                     // Pipe output to run extenstion motor
                     [arm](double output) { arm->runExtentionMotor(output); },
                     {}} {
-  m_controller.SetTolerance(ARM_PID_CONST::EXTEND_A_TOL, ARM_PID_CONST::EXTEND_R_TOL);
+  m_controller.SetTolerance(ARM_PID_CONST::EXTEND_R_TOL, ARM_PID_CONST::EXTEND_A_TOL);
 }
 
 bool PIDArmExtension::IsFinished() {

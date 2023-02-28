@@ -8,7 +8,7 @@ PIDArmTilt::PIDArmTilt(ArmSubsystem* arm, double tiltRotations) : CommandHelper{
                     // Pipe output to run extenstion motor
                     [arm](double output) { arm->runExtentionMotor(output); },
                     {}} {
-  m_controller.SetTolerance(ARM_PID_CONST::TILT_A_TOL, ARM_PID_CONST::TILT_R_TOL);
+  m_controller.SetTolerance(ARM_PID_CONST::TILT_R_TOL, ARM_PID_CONST::TILT_A_TOL);
 }
 
 bool PIDArmTilt::IsFinished() {
