@@ -51,7 +51,7 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
 } 
 
 void ArmSubsystem::moveArmWithController() {
-    extendWithController = (mp_Controller->GetRightBumper() * 0.5) - (mp_Controller->GetLeftBumper() * 0.5);
+    extendWithController = (mp_Controller->GetRightBumper() * 0.2) - (mp_Controller->GetLeftBumper() * 0.2);
     tiltWithController = mp_Controller->GetRightY();
     
     runExtentionMotor(extendWithController);
