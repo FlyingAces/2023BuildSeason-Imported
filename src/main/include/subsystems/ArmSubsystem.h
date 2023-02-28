@@ -56,6 +56,15 @@ namespace ARM_PID_CONST
 
     // Tilt rotation values needed for game pieces
     const double TL_CONE_TOP = 10;
+
+    // Claw PID values
+    const double CLAW_P = 0.01;
+    const double CLAW_I = 0;
+    const double CLAW_D = 0;
+    
+    // Extension Rotation and accelleration tollarance values for claw
+    const double CLAW_R_TOL = 100;
+    const double CLAW_A_TOL = 10;
 }
 
 class ArmSubsystem : public frc2::SubsystemBase {
