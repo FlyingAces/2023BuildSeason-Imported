@@ -33,4 +33,9 @@ void LimeLightSubsystem::setMode(CamMode mode){
     table->PutNumber("camMode", mode);
 }
 
+void LimeLightSubsystem::setPipeline(int pipeNum) {
+    table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+    table->PutNumber("pipeline", pipeNum);
+}
+
 void LimeLightSubsystem::Periodic() {}
