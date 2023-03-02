@@ -63,7 +63,7 @@ namespace PID_TURN_CONSTANTS {
 
 namespace PID_DRIVE_CONSTANTS {
     // PID constatns
-    const double DRIVE_P = 0.1;
+    const double DRIVE_P = 0.2;
     const double DRIVE_I = 0.0;
     const double DRIVE_D = 0.0;
     // Max distance tolerance for stoping the loop
