@@ -54,10 +54,6 @@ void DriveTrainSubsystem::driveWithController() {
   m_controllerDriveSpeed = (mp_Controller->GetLeftTriggerAxis() - mp_Controller->GetRightTriggerAxis()) * m_DriveSpeedMult;
   m_controllerRotation = mp_Controller->GetLeftX() * m_RotationSpeedMult;
   m_DifferentialDrive.ArcadeDrive(m_controllerDriveSpeed, m_controllerRotation, false);
-
-  // Prints for debug
-  std::cout << "LeftDist M: " << this->getLeftDist().value() << std::endl;
-  std::cout << "RighDist M: " << this->getLeftDist().value() << std::endl;
 }
 
 void DriveTrainSubsystem::tankDrive(double left, double right){
