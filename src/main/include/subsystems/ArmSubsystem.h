@@ -113,7 +113,7 @@ class ArmSubsystem : public frc2::SubsystemBase {
 
     // Motor objects
     WPI_TalonSRX m_TiltMotor{ARM_CONST::ARM_TILT_MOTOR_ID};
-    WPI_TalonSRX m_ExtentionMotor{ARM_CONST::ARM_TILT_MOTOR_ID};
+    WPI_TalonSRX m_ExtentionMotor{ARM_CONST::ARM_EXTENTION_MOTOR_ID};
     rev::CANSparkMax m_ClawMotor{ARM_CONST::CLAW_MOTOR_ID, rev::CANSparkMax::MotorType::kBrushless};
     
     // Encoder objects
