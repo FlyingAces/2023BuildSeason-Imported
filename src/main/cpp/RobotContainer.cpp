@@ -27,11 +27,11 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
-  m_DriverYButton.WhileTrue(&m_PIDLevel);
+  //m_DriverYButton.WhileTrue(&m_PIDLevel);
 
   // Should run both tilt and extend pid commands to attain a certain hieght/extension
   // Needs Testing
-  m_DriverAButton.OnTrue(new frc2::ParallelCommandGroup(m_ArmExtendTopCone, m_ArmTiltTopCone));
+  //m_DriverAButton.OnTrue(new frc2::ParallelCommandGroup(m_ArmExtendTopCone, m_ArmTiltTopCone));
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {

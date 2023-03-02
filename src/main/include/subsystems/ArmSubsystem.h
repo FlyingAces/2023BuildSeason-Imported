@@ -21,7 +21,7 @@
 namespace ARM_CONST
 {
     // Motor IDs
-    const int ARM_EXTENTION_MOTOR_ID = 0;
+    const int ARM_EXTENTION_MOTOR_ID = 6;
     const int ARM_TILT_MOTOR_ID = 0;
     const int CLAW_MOTOR_ID = 0;
 
