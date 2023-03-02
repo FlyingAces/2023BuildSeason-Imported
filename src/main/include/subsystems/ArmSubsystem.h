@@ -92,10 +92,10 @@ class ArmSubsystem : public frc2::SubsystemBase {
     // Zeros claw motor encoder
     void zeroClawMotorEncoder();
 
-    // Returns encoder position of tilt motor
+    // Returns rotation position of tilt motor
     double getTiltMotorEncoderPOS();
 
-    // Returns encoder position of extention motor
+    // Returns rotation position of extention motor
     double getExtentionMotorEncoderPOS();
 
     // Returns encoder position of claw motor

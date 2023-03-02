@@ -13,6 +13,10 @@ ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_
     m_TiltMotor.SetNeutralMode(Brake);
 
     m_ClawMotor.RestoreFactoryDefaults();
+
+    m_ExtentionMotor.SetSelectedSensorPosition(0.0);
+    m_TiltMotor.SetSelectedSensorPosition(0.0);
+    m_ClawEncoder.SetPosition(0.0);
 }
 
 void ArmSubsystem::runTiltMotor(double speed) {
@@ -40,11 +44,13 @@ void ArmSubsystem::zeroClawMotorEncoder() {
 }
 
 double ArmSubsystem::getTiltMotorEncoderPOS() {
-    return m_TiltMotor.GetSelectedSensorPosition();
+    // 4096 is encoder pulses per potation
+    return m_TiltMotor.GetSelectedSensorPosition() / 4096;
 }
 
 double ArmSubsystem::getExtentionMotorEncoderPOS() {
-    return m_ExtentionMotor.GetSelectedSensorPosition();
+    // 4096 is encoder pulses per potation
+    return m_ExtentionMotor.GetSelectedSensorPosition() / 4096;
 }
 
 double ArmSubsystem::getClawMotorEncoderPOS() {
@@ -57,5 +63,5 @@ void ArmSubsystem::moveArmWithController() {
     
     runExtentionMotor(extendWithController);
     runTiltMotor(tiltWithController);
-    std::cout << "extend with control: " << extendWithController << std::endl;
+    std::cout << "extend encoder pos: " << m_ExtentionMotor.GetSelectedSensorPosition(0) << std::endl;
 }
