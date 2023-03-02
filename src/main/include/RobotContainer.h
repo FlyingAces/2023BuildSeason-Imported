@@ -77,7 +77,7 @@ class RobotContainer {
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
 
   // Commands for arm mechanism
-  PIDArmExtension m_ArmExtendTopCone{&m_ArmSubsystem, ARM_PID_CONST::EX_CONE_TOP};
+  PIDArmExtension m_ArmExtendTop{&m_ArmSubsystem, ARM_PID_CONST::EX_CONE_TOP};
   PIDArmTilt m_ArmTiltTopCone{&m_ArmSubsystem, ARM_PID_CONST::TL_CONE_TOP};
 
   // Drive Straight test when button pressed

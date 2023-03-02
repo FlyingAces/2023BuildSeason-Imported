@@ -27,7 +27,7 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
-  //m_DriverYButton.WhileTrue(&m_PIDLevel);
+  m_DriverYButton.OnTrue(&m_ArmExtendTop);
 
   // Should run both tilt and extend pid commands to attain a certain hieght/extension
   // Needs Testing

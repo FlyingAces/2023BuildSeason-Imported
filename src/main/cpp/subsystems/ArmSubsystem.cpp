@@ -17,6 +17,8 @@ ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_
     m_ExtentionMotor.SetSelectedSensorPosition(0.0);
     m_TiltMotor.SetSelectedSensorPosition(0.0);
     m_ClawEncoder.SetPosition(0.0);
+
+    m_ExtentionMotor.SetInverted(true);
 }
 
 void ArmSubsystem::runTiltMotor(double speed) {
@@ -63,5 +65,5 @@ void ArmSubsystem::moveArmWithController() {
     
     runExtentionMotor(extendWithController);
     runTiltMotor(tiltWithController);
-    std::cout << "extend encoder pos: " << m_ExtentionMotor.GetSelectedSensorPosition(0) << std::endl;
+    std::cout << "extend encoder pos: " << getExtentionMotorEncoderPOS() << std::endl;
 }

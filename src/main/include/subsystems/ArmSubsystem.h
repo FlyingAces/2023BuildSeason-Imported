@@ -34,16 +34,16 @@ namespace ARM_CONST
 namespace ARM_PID_CONST
 {
     // Extension Arm PID values
-    const double EXTEND_P = 0.01;
+    const double EXTEND_P = 0.4;
     const double EXTEND_I = 0;
     const double EXTEND_D = 0;
     
     // Extension Rotation and accelleration tollarance values
-    const double EXTEND_R_TOL = 100;
-    const double EXTEND_A_TOL = 10;
+    const double EXTEND_R_TOL = 0.1;
+    const double EXTEND_A_TOL = 0.1;
 
     // Extension rotation values needed for game pieces
-    const double EX_CONE_TOP = 10;
+    const double EX_CONE_TOP = 4;
 
     // Tilt Mechanism PID values
     const double TILT_P = 0.01;
