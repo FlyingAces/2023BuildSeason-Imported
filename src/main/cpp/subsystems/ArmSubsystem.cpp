@@ -1,5 +1,6 @@
 #include "subsystems/ArmSubsystem.h"
 
+#include <iostream>
 ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     SetName("ArmSubsystem");
     SetSubsystem("ArmSubystem");
@@ -51,9 +52,10 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
 } 
 
 void ArmSubsystem::moveArmWithController() {
-    extendWithController = (mp_Controller->GetRightBumper() * 0.2) - (mp_Controller->GetLeftBumper() * 0.2);
+    extendWithController = (mp_Controller->GetRightBumper() * 0.3) - (mp_Controller->GetLeftBumper() * 0.3);
     tiltWithController = mp_Controller->GetRightY();
     
     runExtentionMotor(extendWithController);
     runTiltMotor(tiltWithController);
+    std::cout << "extend with control: " << extendWithController << std::endl;
 }
