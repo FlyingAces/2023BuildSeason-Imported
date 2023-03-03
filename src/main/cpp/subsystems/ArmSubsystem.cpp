@@ -17,7 +17,9 @@ ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_
     m_TiltMotor.SetSelectedSensorPosition(0.0);
     m_ClawEncoder.SetPosition(0.0);
 
-    m_ExtentionMotor.SetInverted(true);
+    m_ExtentionMotor.ConfigOpenloopRamp(2);
+
+    m_ExtentionMotor.SetInverted(false);
 }
 
 void ArmSubsystem::runTiltMotor(double speed) {
