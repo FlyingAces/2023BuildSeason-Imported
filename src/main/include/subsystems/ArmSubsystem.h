@@ -29,6 +29,14 @@ namespace ARM_CONST
     const double EXTEND_MOTOR_RATIO = 1;
     const double TILT_MOTOR_RATIO = 1;
     const double CLAW_MOTOR_RATIO = 1;
+
+    // Extension Safety (Max and Min, for controller drive)
+    const double EXTEND_MAX = 8;
+    const double TILT_MAX = 4;
+    const double CLAW_MAX = 20;
+
+    const double TILT_MIN = 0;
+    const double CLAW_MIN = 0;
 }
 
 namespace ARM_PID_CONST
