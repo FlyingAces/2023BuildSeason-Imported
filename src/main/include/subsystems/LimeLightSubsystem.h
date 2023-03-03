@@ -40,6 +40,10 @@ class LimeLightSubsystem : public frc2::SubsystemBase {
     // 1 driver camera (disables vision processing)
     void setMode(CamMode mode);
 
+    void setPipeline(int pipeNum);
+
+    int getPipeline();
+
     void Periodic() override;
 
     private:

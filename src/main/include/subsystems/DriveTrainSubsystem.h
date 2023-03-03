@@ -24,8 +24,8 @@ namespace DT_CONSTANTS {
     const int LEFT_LEADER = 1;
     const int LEFT_FOLLOWER = 2;
 
-    // Diameter of our wheels in inches
-    const double WHEEL_DIAMETER_IN = 6.0;
+    // Diameter of our wheels in meters
+    const double WHEEL_DIAMETER_M = 0.1524;
     // The amount of encoder pulses produced per revolution of the motors
     const int PULSES_PER_REV = 2048;
     // The number of motor revolutions per revolution of the drive train wheels
@@ -63,7 +63,7 @@ namespace PID_TURN_CONSTANTS {
 
 namespace PID_DRIVE_CONSTANTS {
     // PID constatns
-    const double DRIVE_P = 0.005;
+    const double DRIVE_P = 0.2;
     const double DRIVE_I = 0.0;
     const double DRIVE_D = 0.0;
     // Max distance tolerance for stoping the loop
@@ -72,10 +72,10 @@ namespace PID_DRIVE_CONSTANTS {
     const auto ACCEL_TOLERANCE = 0.05_mps;
     // Max driving speed 
     // originally 1
-    const auto MAX_SPEED = 0.75_mps;
+    const auto MAX_SPEED = 0.3_mps;
     // Max acceleration
     // origunally 3
-    const auto MAX_ACCEL = 3_mps / 1_s;
+    const auto MAX_ACCEL = 1_mps / 1_s;
 }
 
 class DriveTrainSubsystem : public frc2::SubsystemBase {
