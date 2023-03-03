@@ -32,6 +32,7 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
+  m_DriverAButton.OnTrue(&m_ToggleDriveMode);
 }
 
 frc2::Command* RobotContainer::GetAutonomousCommand() {
