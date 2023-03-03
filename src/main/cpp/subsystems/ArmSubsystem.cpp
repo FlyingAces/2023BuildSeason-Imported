@@ -20,9 +20,13 @@ ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_
     m_ClawEncoder.SetPosition(0.0);
 
     m_ExtentionMotor.ConfigOpenloopRamp(2);
+    m_ClawMotor.SetOpenLoopRampRate(0.1);
 
-    m_ExtentionMotor.SetInverted(false);
-    m_ClawMotor.SetInverted(false);
+    m_ExtentionMotor.SetInverted(true);
+
+    m_TiltMotor.SetInverted(true);
+
+    m_ClawMotor.SetInverted(true);
 }
 
 void ArmSubsystem::runTiltMotor(double speed) {
@@ -68,38 +72,41 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
 // Y axis is extension
 // TEMP: RIGHT AND LEFT TRIGGERS ARE CLAW
 void ArmSubsystem::moveArmWithController() {
-    extendWithController = mp_Controller->GetRightY();
-    tiltWithController = mp_Controller->GetRightX(); 
-    clawWithController = (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis()) * 0.5;
+    extendWithController = -1 * mp_Controller->GetRightY();
+    tiltWithController = -1 * mp_Controller->GetRightX(); 
+    clawWithController = -0.5 * (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis());
 
     if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() >= ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
         std::cout << "able to extend" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
-        //runExtentionMotor(-0.2);
+        runExtentionMotor(0.2);
         std::cout << "auto retract" << std::endl;
     } else {
-        //runExtensionMotor(0.2)
+        runExtentionMotor(-0.2);
         std::cout << "auto extend" << std::endl;
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
        runTiltMotor(tiltWithController);
        std::cout << "able to tilt" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::TILT_MAX) {
-        //runTiltMotor(-0.1);
+        runTiltMotor(0.1);
         std::cout << "auto tilt down" << std::endl;
-    } else {
-        //runTiltMotor(0.1);
+    } else if (getTiltMotorEncoderPOS() < ARM_CONST::TILT_MIN) {
+        runTiltMotor(-0.1);
         std::cout << "auto tilt up" << std::endl;
+    }
+    else {
+        runTiltMotor(0);
     }
     if(getClawMotorEncoderPOS() < ARM_CONST::CLAW_MAX && getClawMotorEncoderPOS() >= ARM_CONST::CLAW_MIN) { 
         runClawMotor(clawWithController);
         std::cout << "able to claw" << std::endl;
     } else if (getClawMotorEncoderPOS() > ARM_CONST::CLAW_MAX) {
-        //runClawMotor(-0.2);
+        runClawMotor(-0.2);
         std::cout << "auto close claw" << std::endl;
     } else {
-        //runClawMotor(0.2);
+        runClawMotor(0.2);
         std::cout << "auto open claw" << std::endl;
     }
 
