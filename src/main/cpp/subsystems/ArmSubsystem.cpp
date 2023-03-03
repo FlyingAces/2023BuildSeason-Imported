@@ -78,11 +78,13 @@ void ArmSubsystem::moveArmWithController() {
 
     if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
-    } else if (getTiltMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
+        std::cout << " I AM DRIVING NORMALLY" << std::endl;
+    } else if (getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(0.3);
-    }
-    else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
+        std::cout << " I AM AUTO EXTENDING" << std::endl;
+    } else if (getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
         runExtentionMotor(-0.3);
+        std::cout << " I AM AUTO PULLING IN" << std::endl;
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
        runTiltMotor(tiltWithController);
