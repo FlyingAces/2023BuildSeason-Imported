@@ -80,10 +80,10 @@ void ArmSubsystem::moveArmWithController() {
         runExtentionMotor(extendWithController);
         std::cout << "able to extend" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
-        runExtentionMotor(0.2);
+        runExtentionMotor(-0.2);
         std::cout << "auto retract" << std::endl;
     } else {
-        runExtentionMotor(-0.2);
+        runExtentionMotor(0.2);
         std::cout << "auto extend" << std::endl;
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
