@@ -72,32 +72,38 @@ void ArmSubsystem::moveArmWithController() {
     tiltWithController = mp_Controller->GetRightX(); 
     clawWithController = (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis()) * 0.5;
 
-    runExtentionMotor(extendWithController);
-    runTiltMotor(tiltWithController);
-    runClawMotor(clawWithController);
-    /* - mp_Controller->GetRightTriggerAxis()) * 0.5;
-    if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX) {
+    if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() >= ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
-    } else {
+        std::cout << "able to extend" << std::endl;
+    } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
         //runExtentionMotor(-0.2);
+        std::cout << "auto retract" << std::endl;
+    } else {
+        //runExtensionMotor(0.2)
+        std::cout << "auto extend" << std::endl;
     }
-    if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() > ARM_CONST::TILT_MIN) {
+    if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
        runTiltMotor(tiltWithController);
+       std::cout << "able to tilt" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::TILT_MAX) {
         //runTiltMotor(-0.1);
+        std::cout << "auto tilt down" << std::endl;
     } else {
         //runTiltMotor(0.1);
+        std::cout << "auto tilt up" << std::endl;
     }
-    if(getClawMotorEncoderPOS() >= ARM_CONST::CLAW_MIN && getClawMotorEncoderPOS() < ARM_CONST::CLAW_MAX) { 
+    if(getClawMotorEncoderPOS() < ARM_CONST::CLAW_MAX && getClawMotorEncoderPOS() >= ARM_CONST::CLAW_MIN) { 
         runClawMotor(clawWithController);
+        std::cout << "able to claw" << std::endl;
     } else if (getClawMotorEncoderPOS() > ARM_CONST::CLAW_MAX) {
-        runClawMotor(-0.2);
+        //runClawMotor(-0.2);
+        std::cout << "auto close claw" << std::endl;
     } else {
         //runClawMotor(0.2);
+        std::cout << "auto open claw" << std::endl;
     }
 
     std::cout << "Extend Encoder: " << getExtentionMotorEncoderPOS() << std::endl;
     std::cout << "Tilt Encoder: " << getTiltMotorEncoderPOS() << std::endl;
     std::cout << "Claw Encoder: " << getClawMotorEncoderPOS() << std::endl;
-    */
 }

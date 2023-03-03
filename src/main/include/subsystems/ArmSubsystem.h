@@ -35,6 +35,7 @@ namespace ARM_CONST
     const double TILT_MAX = 4;
     const double CLAW_MAX = 20;
 
+    const double EXTEND_MIN = 0;
     const double TILT_MIN = 0;
     const double CLAW_MIN = 0;
 }
