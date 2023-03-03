@@ -14,6 +14,7 @@
 #include <frc2/command/Command.h>
 #include <frc2/command/SequentialCommandGroup.h>
 #include <frc2/command/ParallelCommandGroup.h>
+#include <frc2/command/PrintCommand.h>
 #include <frc2/command/button/Trigger.h>
 
 #include "subsystems/DriveTrainSubsystem.h"
@@ -22,10 +23,10 @@
 
 #include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
+#include "commands/DriveCommands/DriveStraightPID.h"
 #include "commands/ArmCommands/MoveArmWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
-#include "commands/AutoCommands/MainAuto.h"
 #include "commands/ArmCommands/PIDArmExtension.h"
 #include "commands/ArmCommands/PIDArmTilt.h"
 #include "commands/LevelCommands/PIDLevel.h"
