@@ -31,6 +31,10 @@
 #include "commands/ArmCommands/PIDArmTilt.h"
 #include "commands/LevelCommands/PIDLevel.h"
 
+#include "commands/AutoCommands/MiddleAutoNoScore.h"
+#include "commands/AutoCommands/ShortAutoNoScore.h"
+#include "commands/AutoCommands/LongAutoNoScore.h"
+
 /**
  * This class is where the bulk of the robot should be declared.  Since
  * Command-based is a "declarative" paradigm, very little robot logic should

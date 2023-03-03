@@ -21,6 +21,9 @@ RobotContainer::RobotContainer() {
   // Auto
   m_AutoMode.SetDefaultOption("Default", new frc2::PrintCommand("Default"));
   m_AutoMode.AddOption("None", new frc2::PrintCommand("No Auto"));
+  m_AutoMode.AddOption("Middle Without Score", new MiddleAutoNoScore(&m_DriveTrain, &m_Gyro));
+  m_AutoMode.AddOption("Short Without Score", new ShortAutoNoScore(&m_DriveTrain, &m_Gyro));
+  m_AutoMode.AddOption("Long Without Score", new LongAutoNoScore(&m_DriveTrain, &m_Gyro));
   frc::Shuffleboard::GetTab("Drive").Add("AutoMode", m_AutoMode).WithWidget(frc::BuiltInWidgets::kComboBoxChooser);
   frc::Shuffleboard::GetTab("Drive").Add("Pitch", 0).GetEntry();
 }

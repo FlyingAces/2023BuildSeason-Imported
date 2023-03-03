@@ -1,6 +1,6 @@
-#include "commands/AutoCommands/LeftAutoNoScore.h"
+#include "commands/AutoCommands/ShortAutoNoScore.h"
 
-LeftAutoNoScore::LeftAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro) : mp_DriveTrain{p_DriveTrain}, mp_Gyro{p_Gyro} {
+ShortAutoNoScore::ShortAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro) : mp_DriveTrain{p_DriveTrain}, mp_Gyro{p_Gyro} {
     AddCommands(DriveStraightPID(mp_DriveTrain, 1_m),
     TurnToAnglePID(mp_DriveTrain, mp_Gyro, 90_deg),
     DriveStraightPID(mp_DriveTrain, 1_m),

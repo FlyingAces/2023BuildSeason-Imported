@@ -21,9 +21,9 @@
 // Turn -90 degrees
 // Drive forward X meters
 // Run PIDBalance Command
-class RightAutoNoScore : public frc2::CommandHelper<frc2::SequentialCommandGroup, RightAutoNoScore> {
+class LongAutoNoScore : public frc2::CommandHelper<frc2::SequentialCommandGroup, LongAutoNoScore> {
     public:
-    RightAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
+    LongAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
 
     private:
     DriveTrainSubsystem* mp_DriveTrain;
