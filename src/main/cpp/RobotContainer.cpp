@@ -19,7 +19,7 @@ RobotContainer::RobotContainer() {
   ConfigureButtonBindings();
   
   // Auto
-  m_AutoMode.SetDefaultOption("Main Auto", new MainAuto(&m_DriveTrain, &m_Gyro));
+  m_AutoMode.SetDefaultOption("Default", new frc2::PrintCommand("Default"));
   m_AutoMode.AddOption("None", new frc2::PrintCommand("No Auto"));
   frc::Shuffleboard::GetTab("Drive").Add("AutoMode", m_AutoMode).WithWidget(frc::BuiltInWidgets::kComboBoxChooser);
   frc::Shuffleboard::GetTab("Drive").Add("Pitch", 0).GetEntry();
