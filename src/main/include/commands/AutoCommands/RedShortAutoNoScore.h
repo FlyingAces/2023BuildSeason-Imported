@@ -16,14 +16,14 @@
 // NEEDS MEASUREMENTS AND TESTING
 // Routine
 // Drive forward X meter
-// Turn 90 degrees
+// Turn -90 degrees
 // Drive forward X meters
-// Turn 90 degrees
+// Turn -90 degrees
 // Drive forward X meters
 // Run PIDBalance Command
-class ShortAutoNoScore : public frc2::CommandHelper<frc2::SequentialCommandGroup, ShortAutoNoScore> {
+class RedShortAutoNoScore : public frc2::CommandHelper<frc2::SequentialCommandGroup, RedShortAutoNoScore> {
     public:
-    ShortAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
+    RedShortAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
 
     private:
     DriveTrainSubsystem* mp_DriveTrain;

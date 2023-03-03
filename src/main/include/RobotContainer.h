@@ -32,8 +32,10 @@
 #include "commands/LevelCommands/PIDLevel.h"
 
 #include "commands/AutoCommands/MiddleAutoNoScore.h"
-#include "commands/AutoCommands/ShortAutoNoScore.h"
-#include "commands/AutoCommands/LongAutoNoScore.h"
+#include "commands/AutoCommands/BlueShortAutoNoScore.h"
+#include "commands/AutoCommands/BlueLongAutoNoScore.h"
+#include "commands/AutoCommands/RedShortAutoNoScore.h"
+#include "commands/AutoCommands/RedLongAutoNoScore.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
