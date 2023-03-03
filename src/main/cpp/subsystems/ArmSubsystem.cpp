@@ -80,7 +80,7 @@ void ArmSubsystem::moveArmWithController() {
         runExtentionMotor(extendWithController);
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
         runExtentionMotor(-0.2);
-    } else {
+    } else if (getTiltMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(0.2);
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
