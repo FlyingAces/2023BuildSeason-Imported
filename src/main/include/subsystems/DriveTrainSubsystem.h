@@ -36,10 +36,10 @@ namespace DT_CONSTANTS {
 
     // Constants controlling the speeds of the two drive modes
     // See toggleDriveMode();
-    const double CONTROLLER_DRIVE_MULT_FULL = 0.5;
-    const double CONTROLLER_TURN_MULT_FULL = 0.5;
-    const double CONTROLLER_DRIVE_MULT_HALF = 0.25;
-    const double CONTROLLER_TURN_MULT_HALF = 0.25;
+    const double CONTROLLER_DRIVE_MULT_FULL = 0.7;
+    const double CONTROLLER_TURN_MULT_FULL = 0.3;
+    const double CONTROLLER_DRIVE_MULT_HALF = 0.4;
+    const double CONTROLLER_TURN_MULT_HALF = 0.2;
 
     // Is the gyro reversed
     const bool GYRO_REVERSED = false;
