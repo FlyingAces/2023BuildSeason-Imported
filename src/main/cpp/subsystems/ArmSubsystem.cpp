@@ -74,11 +74,10 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
 void ArmSubsystem::moveArmWithController() {
     extendWithController = -1 * mp_Controller->GetRightY();
     tiltWithController = -1 * mp_Controller->GetRightX(); 
-    clawWithController = -0.5 * (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis());
+    clawWithController = -0.2 * (mp_Controller->GetRightBumper() - mp_Controller->GetLeftBumper());
 
     if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() >= ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
-        std::cout << "able to extend" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
         runExtentionMotor(-0.2);
     } else if (getTiltMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
@@ -103,7 +102,4 @@ void ArmSubsystem::moveArmWithController() {
     } else {
         runClawMotor(0.2);
     }
-
-    std::cout << "Extension POS: " << getExtentionMotorEncoderPOS() << std::endl;
-
 }

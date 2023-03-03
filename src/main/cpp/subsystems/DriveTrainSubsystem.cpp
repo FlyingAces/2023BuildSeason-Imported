@@ -52,7 +52,7 @@ void DriveTrainSubsystem::arcadeDrive(double speed, double rotation) {
 // Y axis is forward/backwards
 // X axis is right/left
 void DriveTrainSubsystem::driveWithController() {
-  m_controllerDriveSpeed = mp_Controller->GetLeftY() * m_DriveSpeedMult;
+  m_controllerDriveSpeed = (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis()) * m_DriveSpeedMult;
   m_controllerRotation = mp_Controller->GetLeftX() * m_RotationSpeedMult;
   m_DifferentialDrive.ArcadeDrive(m_controllerDriveSpeed, m_controllerRotation, false);
 }
