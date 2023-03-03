@@ -8,8 +8,6 @@
 #include <frc/shuffleboard/ShuffleboardLayout.h>
 #include <frc/shuffleboard/ShuffleboardTab.h>
 
-#include <iostream>
-
 DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     // Implementation of subsystem constructor goes here.
     SetName("DriveTrain");

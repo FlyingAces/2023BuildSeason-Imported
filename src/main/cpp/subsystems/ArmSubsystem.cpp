@@ -1,6 +1,5 @@
 #include "subsystems/ArmSubsystem.h"
 
-#include <iostream>
 ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     SetName("ArmSubsystem");
     SetSubsystem("ArmSubystem");
@@ -70,6 +69,4 @@ void ArmSubsystem::moveArmWithController() {
     
     runExtentionMotor(extendWithController);
     runClawMotor(tiltWithController);
-    std::cout << "extend encoder pos: " << getExtentionMotorEncoderPOS() << std::endl;
-    std::cout << "claw encoder pos: " << getClawMotorEncoderPOS() << std::endl;
 }

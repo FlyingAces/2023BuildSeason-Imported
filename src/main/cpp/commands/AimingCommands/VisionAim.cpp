@@ -1,5 +1,4 @@
 #include "commands/AimingCommands/VisionAim.h"
-#include <iostream>
 
 VisionAim::VisionAim(DriveTrainSubsystem* p_DriveTrain, LimeLightSubsystem* p_LimeLight) : mp_Drivetrain{p_DriveTrain}, mp_LimeLight{p_LimeLight} {
     SetName("VisionAimV1");
@@ -26,7 +25,6 @@ void VisionAim::Execute(){
     leftSteer=steerAjust;
     rightSteer=-steerAjust;
 
-    std::cout <<std::endl << "tx: " << headingError << "StAj: " << steerAjust << "lsteer:" << leftSteer << "rsteer" << rightSteer << std::endl;
     mp_Drivetrain->tankDrive(leftSteer, rightSteer);
 }
 
