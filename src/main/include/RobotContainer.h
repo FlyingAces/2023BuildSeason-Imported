@@ -19,6 +19,7 @@
 #include "subsystems/LimeLightSubsystem.h"
 
 #include "commands/LevelCommands/AutoLevel.h"
+#include "commands/LevelCommands/PIDLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
 #include "commands/ArmCommands/MoveArmWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
@@ -63,7 +64,7 @@ class RobotContainer {
   LimeLightSubsystem m_LimeLight;
 
   // Create Commands
-  AutoLevel m_AutoLevel{&m_DriveTrain, &m_Gyro};
+  PIDLevel m_PIDLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
   MoveArmWithController m_MoveArmWithController{&m_ArmSubsystem};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
