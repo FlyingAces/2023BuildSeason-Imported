@@ -58,8 +58,21 @@ class RobotContainer {
 
   // Create controller and button objects
   frc::XboxController m_DriverController{0};
+
   frc2::Trigger m_DriverYButton{[&] { return m_DriverController.GetYButton(); }};
+  frc2::Trigger m_DriverBButton{[&] { return m_DriverController.GetBButton(); }};
+  frc2::Trigger m_DriverXButton{[&] { return m_DriverController.GetXButton(); }};
   frc2::Trigger m_DriverAButton{[&] { return m_DriverController.GetAButton(); }};
+
+  frc2::Trigger m_DriverLeftBumper{[&] {return m_DriverController.GetLeftBumper();}};
+  frc2::Trigger m_DriverRightBumper{[&] {return m_DriverController.GetRightBumper();}};
+
+  // Controller DPAD
+  // THIS SHOULD WORK (NEEDS TESTING)
+  frc2::Trigger m_DriverDpadUP{[&] { return m_DriverController.GetPOV() == 0; }};
+  frc2::Trigger m_DriverDpadRIGHT{[&] { return m_DriverController.GetPOV() == 90; }};
+  frc2::Trigger m_DriverDpadDOWN{[&] { return m_DriverController.GetPOV() == 180; }};
+  frc2::Trigger m_DriverDpadLEFT{[&] { return m_DriverController.GetPOV() == 270; }};
 
 
   // Create subsystem objects
