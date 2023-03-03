@@ -1,5 +1,6 @@
 #include "subsystems/ArmSubsystem.h"
 
+#include <iostream>
 ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     SetName("ArmSubsystem");
     SetSubsystem("ArmSubystem");
@@ -12,6 +13,12 @@ ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_
     m_TiltMotor.SetNeutralMode(Brake);
 
     m_ClawMotor.RestoreFactoryDefaults();
+
+    m_ExtentionMotor.SetSelectedSensorPosition(0.0);
+    m_TiltMotor.SetSelectedSensorPosition(0.0);
+    m_ClawEncoder.SetPosition(0.0);
+
+    m_ExtentionMotor.SetInverted(true);
 }
 
 void ArmSubsystem::runTiltMotor(double speed) {
@@ -35,20 +42,29 @@ void ArmSubsystem::zeroExtentionMotorEncoder() {
 }
 
 void ArmSubsystem::zeroClawMotorEncoder() {
-    // DONT KNOW HOW TO IMPLIMENT
-    // m_ClawMotor.GetEncoder().SetPosition(0.0);
+    m_ClawEncoder.SetPosition(0.0);
 }
 
 double ArmSubsystem::getTiltMotorEncoderPOS() {
-    return m_TiltMotor.GetSelectedSensorPosition();
+    // 4096 is encoder pulses per potation
+    return m_TiltMotor.GetSelectedSensorPosition() / 4096;
 }
 
 double ArmSubsystem::getExtentionMotorEncoderPOS() {
-    return m_ExtentionMotor.GetSelectedSensorPosition();
+    // 4096 is encoder pulses per potation
+    return m_ExtentionMotor.GetSelectedSensorPosition() / 4096;
 }
 
 double ArmSubsystem::getClawMotorEncoderPOS() {
-    // I DONT KNOW HOW THIS WORKS
-    //return m_ClawMotor.GetEncoder().GetPosition();
-    return 0;
-}  
+    return m_ClawEncoder.GetPosition();
+} 
+
+void ArmSubsystem::moveArmWithController() {
+    extendWithController = (mp_Controller->GetRightBumper() * 0.3) - (mp_Controller->GetLeftBumper() * 0.3);
+    tiltWithController = mp_Controller->GetRightY();
+    
+    runExtentionMotor(extendWithController);
+    runClawMotor(tiltWithController);
+    std::cout << "extend encoder pos: " << getExtentionMotorEncoderPOS() << std::endl;
+    std::cout << "claw encoder pos: " << getClawMotorEncoderPOS() << std::endl;
+}

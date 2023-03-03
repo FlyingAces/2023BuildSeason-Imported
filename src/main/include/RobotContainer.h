@@ -20,6 +20,7 @@
 
 #include "commands/LevelCommands/AutoLevel.h"
 #include "commands/DriveCommands/DriveWithController.h"
+#include "commands/ArmCommands/MoveArmWithController.h"
 #include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
 #include "commands/AutoCommands/MainAuto.h"
@@ -64,8 +65,13 @@ class RobotContainer {
   // Create Commands
   AutoLevel m_AutoLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
+  MoveArmWithController m_MoveArmWithController{&m_ArmSubsystem};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
+
+  // Commands for arm mechanism
+  PIDArmExtension m_ArmExtendTop{&m_ArmSubsystem, ARM_PID_CONST::EX_CONE_TOP};
+  PIDArmTilt m_ArmTiltTopCone{&m_ArmSubsystem, ARM_PID_CONST::TL_CONE_TOP};
 
   // Drive Straight test when button pressed
   DriveStraightPID m_DriveStraightWhenPress{&m_DriveTrain, 1_m};
