@@ -59,9 +59,14 @@ double ArmSubsystem::getClawMotorEncoderPOS() {
     return m_ClawEncoder.GetPosition();
 } 
 
+// Right joystick controls extension and pully motors
+// X axis is tilt
+// Y axis is extension
+// TEMP: RIGHT AND LEFT TRIGGERS ARE CLAW
 void ArmSubsystem::moveArmWithController() {
-    extendWithController = (mp_Controller->GetRightBumper() * 0.3) - (mp_Controller->GetLeftBumper() * 0.3);
-    tiltWithController = mp_Controller->GetRightY();
+    extendWithController = mp_Controller->GetRightY();
+    tiltWithController = mp_Controller->GetRightX();
+    clawWithController = (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis()) * 0.5;
     
     runExtentionMotor(extendWithController);
     runClawMotor(tiltWithController);

@@ -110,6 +110,7 @@ class ArmSubsystem : public frc2::SubsystemBase {
     // Drive with controller values;
     double tiltWithController;
     double extendWithController;
+    double clawWithController;
 
     // Motor objects
     WPI_TalonSRX m_TiltMotor{ARM_CONST::ARM_TILT_MOTOR_ID};
