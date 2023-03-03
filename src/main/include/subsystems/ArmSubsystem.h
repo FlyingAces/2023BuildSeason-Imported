@@ -48,11 +48,8 @@ namespace ARM_PID_CONST
     const double TILT_D = 0;
     
     // Tilt Rotation and accelleration tollarance values
-    const double TILT_R_TOL = 100;
-    const double TILT_A_TOL = 10;
-
-    // Tilt rotation values needed for game pieces
-    const double TL_CONE_TOP = 10;
+    const double TILT_R_TOL = 0.2;
+    const double TILT_A_TOL = 0.2;
 
     // Claw PID values
     const double CLAW_P = 0.01;
@@ -60,8 +57,8 @@ namespace ARM_PID_CONST
     const double CLAW_D = 0;
     
     // Extension Rotation and accelleration tollarance values for claw
-    const double CLAW_R_TOL = 100;
-    const double CLAW_A_TOL = 10;
+    const double CLAW_R_TOL = 0.1;
+    const double CLAW_A_TOL = 0.1;
 
     // Rotation values for arm positions
     const double EXTEND_HIGH = 0;
