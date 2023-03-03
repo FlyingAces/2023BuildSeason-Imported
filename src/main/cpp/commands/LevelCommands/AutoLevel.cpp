@@ -1,5 +1,4 @@
 #include "commands/LevelCommands/AutoLevel.h"
-#include <iostream>
 
 AutoLevel::AutoLevel(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro) : mp_DriveTrain{p_DriveTrain}, mp_Gyro{p_Gyro} {
     SetName("AutoLevel");
@@ -12,8 +11,6 @@ void AutoLevel::Initialize() {
 }
 
 void AutoLevel::Execute() {
-    std::cout << "Pitch: " << mp_Gyro->getPitch() << std::endl;
-
     balanceError = mp_Gyro->getPitch();
 
     if (balanceError > 1.0) {

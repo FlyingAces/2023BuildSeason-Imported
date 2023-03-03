@@ -42,20 +42,14 @@ namespace ARM_PID_CONST
     const double EXTEND_R_TOL = 0.1;
     const double EXTEND_A_TOL = 0.1;
 
-    // Extension rotation values needed for game pieces
-    const double EX_CONE_TOP = 4;
-
     // Tilt Mechanism PID values
     const double TILT_P = 0.01;
     const double TILT_I = 0;
     const double TILT_D = 0;
     
     // Tilt Rotation and accelleration tollarance values
-    const double TILT_R_TOL = 100;
-    const double TILT_A_TOL = 10;
-
-    // Tilt rotation values needed for game pieces
-    const double TL_CONE_TOP = 10;
+    const double TILT_R_TOL = 0.2;
+    const double TILT_A_TOL = 0.2;
 
     // Claw PID values
     const double CLAW_P = 0.01;
@@ -63,8 +57,23 @@ namespace ARM_PID_CONST
     const double CLAW_D = 0;
     
     // Extension Rotation and accelleration tollarance values for claw
-    const double CLAW_R_TOL = 100;
-    const double CLAW_A_TOL = 10;
+    const double CLAW_R_TOL = 0.1;
+    const double CLAW_A_TOL = 0.1;
+
+    // Rotation values for arm positions
+    const double EXTEND_HIGH = 0;
+    const double TILT_HIGH = 0;
+
+    const double EXTEND_LOW = 0;
+    const double TILT_LOW = 0;
+
+    const double EXTEND_GROUND = 0;
+    const double TILT_GROUND = 0;
+
+    // Rotation values for game piece pickup
+    const double CLAW_PICKUP_CUBE = 0;
+    const double CLAW_PICKUP_CONE = 0;
+    const double CLAW_DROP_PIECE = 0;
 }
 
 class ArmSubsystem : public frc2::SubsystemBase {
@@ -110,6 +119,7 @@ class ArmSubsystem : public frc2::SubsystemBase {
     // Drive with controller values;
     double tiltWithController;
     double extendWithController;
+    double clawWithController;
 
     // Motor objects
     WPI_TalonSRX m_TiltMotor{ARM_CONST::ARM_TILT_MOTOR_ID};

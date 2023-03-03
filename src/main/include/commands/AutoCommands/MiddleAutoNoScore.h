@@ -7,16 +7,20 @@
 #include <frc2/command/PrintCommand.h>
 
 #include "commands/DriveCommands/DriveStraightPID.h"
-#include "commands/TurnCommands/TurnToAnglePID.h"
-#include "commands/LevelCommands/AutoLevel.h"
+#include "commands/LevelCommands/PIDLevel.h"
+
 
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"
 
-class MainAuto : public frc2::CommandHelper<frc2::SequentialCommandGroup, MainAuto>
+// NEEDS TESTING
+// Routine:
+// Drive forward 1 meter
+// Run PIDBalance Command
+class MiddleAutoNoScore : public frc2::CommandHelper<frc2::SequentialCommandGroup, MiddleAutoNoScore>
 {
 public:
-    MainAuto(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
+    MiddleAutoNoScore(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro);
 private:
     DriveTrainSubsystem* mp_DriveTrain;
     GyroSubsystem* mp_Gyro;

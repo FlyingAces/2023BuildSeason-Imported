@@ -8,8 +8,6 @@
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"
 
-#include <iostream>
-
 // Automatically levels the robot on charging station while ran
 class AutoLevel : public frc2::CommandHelper<frc2::CommandBase, AutoLevel> {
     public:

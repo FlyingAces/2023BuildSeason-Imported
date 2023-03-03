@@ -1,7 +1,5 @@
 #include "subsystems/GyroSubsystem.h"
 
-#include <iostream>
-
 GyroSubsystem::GyroSubsystem() = default;
 
 void GyroSubsystem::zeroGyro(){
