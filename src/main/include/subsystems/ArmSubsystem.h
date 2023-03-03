@@ -42,9 +42,6 @@ namespace ARM_PID_CONST
     const double EXTEND_R_TOL = 0.1;
     const double EXTEND_A_TOL = 0.1;
 
-    // Extension rotation values needed for game pieces
-    const double EX_CONE_TOP = 4;
-
     // Tilt Mechanism PID values
     const double TILT_P = 0.01;
     const double TILT_I = 0;
@@ -65,6 +62,21 @@ namespace ARM_PID_CONST
     // Extension Rotation and accelleration tollarance values for claw
     const double CLAW_R_TOL = 100;
     const double CLAW_A_TOL = 10;
+
+    // Rotation values for arm positions
+    const double EXTEND_HIGH = 0;
+    const double TILT_HIGH = 0;
+
+    const double EXTEND_LOW = 0;
+    const double TILT_LOW = 0;
+
+    const double EXTEND_GROUND = 0;
+    const double TILT_GROUND = 0;
+
+    // Rotation values for game piece pickup
+    const double CLAW_PICKUP_CUBE = 0;
+    const double CLAW_PICKUP_CONE = 0;
+    const double CLAW_DROP_PIECE = 0;
 }
 
 class ArmSubsystem : public frc2::SubsystemBase {

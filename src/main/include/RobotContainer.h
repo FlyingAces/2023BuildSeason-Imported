@@ -30,6 +30,7 @@
 #include "commands/ArmCommands/PIDArmExtension.h"
 #include "commands/ArmCommands/PIDArmTilt.h"
 #include "commands/LevelCommands/PIDLevel.h"
+#include "commands/ArmCommands/PIDClawMove.h"
 
 #include "commands/AutoCommands/MiddleAutoNoScore.h"
 #include "commands/AutoCommands/BlueShortAutoNoScore.h"
@@ -82,23 +83,29 @@ class RobotContainer {
   frc2::Trigger m_DriverDpadLEFT{[&] { return m_DriverController.GetPOV() == 270; }};
 
 
-  // Create subsystem objects
+  // Subsystem objects
   DriveTrainSubsystem m_DriveTrain{&m_DriverController};
   ArmSubsystem m_ArmSubsystem{&m_DriverController};
   GyroSubsystem m_Gyro;
   LimeLightSubsystem m_LimeLight;
   
 
-  // Create Commands
+  // Basic Commands
   PIDLevel m_PIDLevel{&m_DriveTrain, &m_Gyro};
   DriveWithController m_DriveWithController{&m_DriveTrain};
   MoveArmWithController m_MoveArmWithController{&m_ArmSubsystem};
   ToggleDriveMode m_ToggleDriveMode{&m_DriveTrain};
   VisionAim m_VisionAim{&m_DriveTrain, &m_LimeLight};
 
-  // Commands for arm mechanism
-  PIDArmExtension m_ArmExtendTop{&m_ArmSubsystem, ARM_PID_CONST::EX_CONE_TOP};
-  PIDArmTilt m_ArmTiltTopCone{&m_ArmSubsystem, ARM_PID_CONST::TL_CONE_TOP};
+  // Commands for arm
+  frc2::ParallelCommandGroup m_ArmLiftHigh{PIDArmExtension{&m_ArmSubsystem, ARM_PID_CONST::EXTEND_HIGH}, PIDArmTilt{&m_ArmSubsystem, ARM_PID_CONST::TILT_HIGH}};
+  frc2::ParallelCommandGroup m_ArmLiftLow{PIDArmExtension{&m_ArmSubsystem, ARM_PID_CONST::EXTEND_LOW}, PIDArmTilt{&m_ArmSubsystem, ARM_PID_CONST::TILT_LOW}};
+  frc2::ParallelCommandGroup m_ArmLiftGround{PIDArmExtension{&m_ArmSubsystem, ARM_PID_CONST::EXTEND_GROUND}, PIDArmTilt{&m_ArmSubsystem, ARM_PID_CONST::TILT_GROUND}};
+
+  // Commands for claw
+  PIDClawMove m_ClawPickupCube{&m_ArmSubsystem, ARM_PID_CONST::CLAW_PICKUP_CUBE};
+  PIDClawMove m_ClawPickupCone{&m_ArmSubsystem, ARM_PID_CONST::CLAW_PICKUP_CONE};
+  PIDClawMove m_ClawDropPiece{&m_ArmSubsystem, ARM_PID_CONST::CLAW_DROP_PIECE};
 
   // Drive Straight test when button pressed
   DriveStraightPID m_DriveStraightWhenPress{&m_DriveTrain, 1_m};
