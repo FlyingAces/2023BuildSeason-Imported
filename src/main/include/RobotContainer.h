@@ -20,16 +20,13 @@
 #include "subsystems/DriveTrainSubsystem.h"
 #include "subsystems/GyroSubsystem.h"
 #include "subsystems/LimeLightSubsystem.h"
+#include "subsystems/ArmSubsystem.h"
 
-#include "commands/LevelCommands/AutoLevel.h"
-#include "commands/DriveCommands/DriveWithController.h"
-#include "commands/DriveCommands/DriveStraightPID.h"
-#include "commands/ArmCommands/MoveArmWithController.h"
-#include "commands/ToggleCommands/ToggleDriveMode.h"
 #include "commands/AimingCommands/VisionAim.h"
+
+#include "commands/ArmCommands/MoveArmWithController.h"
 #include "commands/ArmCommands/PIDArmExtension.h"
 #include "commands/ArmCommands/PIDArmTilt.h"
-#include "commands/LevelCommands/PIDLevel.h"
 #include "commands/ArmCommands/PIDClawMove.h"
 
 #include "commands/AutoCommands/MiddleAutoNoScore.h"
@@ -37,6 +34,14 @@
 #include "commands/AutoCommands/BlueLongAutoNoScore.h"
 #include "commands/AutoCommands/RedShortAutoNoScore.h"
 #include "commands/AutoCommands/RedLongAutoNoScore.h"
+
+#include "commands/DriveCommands/DriveWithController.h"
+#include "commands/DriveCommands/DriveStraightPID.h"
+
+#include "commands/LevelCommands/AutoLevel.h"
+#include "commands/LevelCommands/PIDLevel.h"
+
+#include "commands/ToggleCommands/ToggleDriveMode.h"
 
 /**
  * This class is where the bulk of the robot should be declared.  Since
