@@ -68,5 +68,6 @@ void ArmSubsystem::moveArmWithController() {
     clawWithController = (mp_Controller->GetRightTriggerAxis() - mp_Controller->GetLeftTriggerAxis()) * 0.5;
     
     runExtentionMotor(extendWithController);
-    runClawMotor(tiltWithController);
+    runTiltMotor(tiltWithController);
+    runClawMotor(clawWithController);
 }
