@@ -64,6 +64,7 @@ void ArmSubsystem::moveArmWithController() {
     tiltWithController = mp_Controller->GetRightY();
     
     runExtentionMotor(extendWithController);
-    runTiltMotor(tiltWithController);
+    runClawMotor(tiltWithController);
     std::cout << "extend encoder pos: " << getExtentionMotorEncoderPOS() << std::endl;
+    std::cout << "claw encoder pos: " << getClawMotorEncoderPOS() << std::endl;
 }
