@@ -78,10 +78,13 @@ void ArmSubsystem::moveArmWithController() {
 
     if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() >= ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
+        std::cout << "able to extend" << std::endl;
     } else if (getTiltMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
-        runExtentionMotor(-0.2);
-    } else if (getTiltMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(0.2);
+    } else if (getTiltMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
+        runExtentionMotor(-0.2);
+    } else {
+        runExtentionMotor(0.0);
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
        runTiltMotor(tiltWithController);
@@ -100,5 +103,7 @@ void ArmSubsystem::moveArmWithController() {
     } else {
         runClawMotor(0.2);
     }
+
+    std::cout << "Extension POS: " << getExtentionMotorEncoderPOS() << std::endl;
 
 }
