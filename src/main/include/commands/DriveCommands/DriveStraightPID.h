@@ -13,6 +13,7 @@ class DriveStraightPID: public frc2::CommandHelper<frc2::ProfiledPIDCommand<unit
 
   void Initialize() override;
   bool IsFinished() override;
+  void End(bool interupted) override;
 
   private:
   DriveTrainSubsystem* mp_DriveTrain;

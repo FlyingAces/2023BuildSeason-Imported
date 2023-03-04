@@ -24,3 +24,7 @@ void DriveStraightPID::Initialize() {
 bool DriveStraightPID::IsFinished() {
   return GetController().AtGoal();
 }
+
+void DriveStraightPID::End(bool interupted) {
+  mp_DriveTrain->zeroDTEncoders();
+}
