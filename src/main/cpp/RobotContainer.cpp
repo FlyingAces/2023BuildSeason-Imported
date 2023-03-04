@@ -39,14 +39,12 @@ void RobotContainer::ConfigureButtonBindings() {
 
 // Runs when auto starts
 void RobotContainer::AutoStart() {
-   m_LimeLight.setMode(LimeLightSubsystem::CamMode::vision);
-   m_LimeLight.setLED(LimeLightSubsystem::LEDMode::on);
+   m_LimeLight.setPipeline(0);
 }
 
 // Runs when TeleOp Starts
 void RobotContainer::TeleOpStart() {
-  m_LimeLight.setMode(LimeLightSubsystem::CamMode::driveCam);
-  m_LimeLight.setLED(LimeLightSubsystem::LEDMode::off);
+  m_LimeLight.setPipeline(1);
 }
 
 
