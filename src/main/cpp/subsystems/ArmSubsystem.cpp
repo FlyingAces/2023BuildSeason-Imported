@@ -74,28 +74,7 @@ void ArmSubsystem::moveArmWithController() {
     tiltWithController = -1 * mp_Controller->GetRightX(); 
     clawWithController = -0.2 * (mp_Controller->GetRightBumper() - mp_Controller->GetLeftBumper());
 
-    if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MIN) {
-        runExtentionMotor(extendWithController);
-    } else if (getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
-        runExtentionMotor(0.3);
-    } else if (getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
-        runExtentionMotor(-0.2);
-    }
-    if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
-       runTiltMotor(tiltWithController);
-    } else if (getTiltMotorEncoderPOS() > ARM_CONST::TILT_MAX) {
-        runTiltMotor(0.1);
-    } else if (getTiltMotorEncoderPOS() < ARM_CONST::TILT_MIN) {
-        runTiltMotor(-0.1);
-    }
-    else {
-        runTiltMotor(0);
-    }
-    if(getClawMotorEncoderPOS() < ARM_CONST::CLAW_MAX && getClawMotorEncoderPOS() >= ARM_CONST::CLAW_MIN) { 
-        runClawMotor(clawWithController);
-    } else if (getClawMotorEncoderPOS() > ARM_CONST::CLAW_MAX) {
-        runClawMotor(-0.2);
-    } else {
-        runClawMotor(0.2);
-    }
+    runExtentionMotor(extendWithController);
+    runTiltMotor(tiltWithController);
+    runClawMotor(clawWithController);
 }
