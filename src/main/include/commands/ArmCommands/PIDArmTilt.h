@@ -14,4 +14,5 @@ class PIDArmTilt : public frc2::CommandHelper<frc2::PIDCommand, PIDArmTilt> {
      PIDArmTilt(ArmSubsystem* arm, double tiltRotations);
 
      bool IsFinished() override;
+     void End(bool interrupted);
 };

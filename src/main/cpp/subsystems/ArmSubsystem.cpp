@@ -60,6 +60,7 @@ double ArmSubsystem::getTiltMotorEncoderPOS() {
 
 double ArmSubsystem::getExtentionMotorEncoderPOS() {
     // 4096 is encoder pulses per potation
+    std::cout << "EXTEND ENCODER POS: " << m_ExtentionMotor.GetSelectedSensorPosition() / 4096;
     return m_ExtentionMotor.GetSelectedSensorPosition() / 4096;
 }
 
