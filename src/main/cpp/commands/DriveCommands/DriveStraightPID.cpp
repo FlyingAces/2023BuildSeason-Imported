@@ -16,6 +16,7 @@ DriveStraightPID::DriveStraightPID(DriveTrainSubsystem* p_drive, units::meter_t 
           {p_drive}), mp_DriveTrain{p_drive} {
   GetController().SetTolerance(PID_DRIVE_CONSTANTS::DIST_TOLERANCE, PID_DRIVE_CONSTANTS::ACCEL_TOLERANCE);
   AddRequirements({p_drive});
+  p_drive->zeroDTEncoders();
 }
 void DriveStraightPID::Initialize() {
   mp_DriveTrain->zeroDTEncoders();
