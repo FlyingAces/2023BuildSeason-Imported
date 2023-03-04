@@ -61,6 +61,9 @@ class RobotContainer {
   frc2::Command* GetAutonomousCommand();
   void RobotInit();
 
+  void TeleOpStart();
+  void AutoStart();
+
  private:
   RobotContainer();
 

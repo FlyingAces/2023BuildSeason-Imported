@@ -35,6 +35,17 @@ void RobotContainer::ConfigureButtonBindings() {
   m_DriverAButton.OnTrue(&m_ToggleDriveMode);
 }
 
+// Runs when auto starts
+void RobotContainer::AutoStart() {
+   m_LimeLight.setMode(LimeLightSubsystem::CamMode::vision);
+}
+
+// Runs when TeleOp Starts
+void RobotContainer::TeleOpStart() {
+  m_LimeLight.setMode(LimeLightSubsystem::CamMode::driveCam);
+}
+
+
 frc2::Command* RobotContainer::GetAutonomousCommand() {
   // An example command will be run in autonomous
   return m_AutoMode.GetSelected();
