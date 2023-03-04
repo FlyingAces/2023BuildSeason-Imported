@@ -8,8 +8,6 @@
 #include <frc/shuffleboard/ShuffleboardLayout.h>
 #include <frc/shuffleboard/ShuffleboardTab.h>
 
-#include <iostream>
-
 DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     // Implementation of subsystem constructor goes here.
     SetName("DriveTrain");
@@ -47,8 +45,6 @@ DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp
 }
 
 void DriveTrainSubsystem::arcadeDrive(double speed, double rotation) {
-    std::cout << "Left encoder POS: " << getLeftDist().value() << std::endl;
-    std::cout << "Right encoder POS: " << getRightDist().value() << std::endl;
     m_DifferentialDrive.ArcadeDrive(speed, rotation, false);
 }
 
@@ -56,8 +52,6 @@ void DriveTrainSubsystem::arcadeDrive(double speed, double rotation) {
 // Y axis is forward/backwards
 // X axis is right/left
 void DriveTrainSubsystem::driveWithController() {
-  std::cout << "Left encoder POS: " << getLeftDist().value() << std::endl;
-    std::cout << "Right encoder POS: " << getRightDist().value() << std::endl;
   m_controllerDriveSpeed = -1* (mp_Controller->GetLeftTriggerAxis() - mp_Controller->GetRightTriggerAxis()) * m_DriveSpeedMult;
   m_controllerRotation = -1 * mp_Controller->GetLeftX() * m_RotationSpeedMult;
   m_DifferentialDrive.ArcadeDrive(m_controllerDriveSpeed, m_controllerRotation, false);
