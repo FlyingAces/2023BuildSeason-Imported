@@ -63,19 +63,19 @@ namespace PID_TURN_CONSTANTS {
 
 namespace PID_DRIVE_CONSTANTS {
     // PID constatns
-    const double DRIVE_P = 0.2;
+    const double DRIVE_P = 0.8;
     const double DRIVE_I = 0.0;
     const double DRIVE_D = 0.0;
     // Max distance tolerance for stoping the loop
-    const auto DIST_TOLERANCE = 0.05_m;
+    const auto DIST_TOLERANCE = 0.1_m;
     // Max acceleration tolerance for stopping the loop
     const auto ACCEL_TOLERANCE = 0.05_mps;
     // Max driving speed 
     // originally 1
-    const auto MAX_SPEED = 0.3_mps;
+    const auto MAX_SPEED = 3_mps;
     // Max acceleration
     // origunally 3
-    const auto MAX_ACCEL = 1_mps / 1_s;
+    const auto MAX_ACCEL = 3_mps / 1_s;
 }
 
 class DriveTrainSubsystem : public frc2::SubsystemBase {

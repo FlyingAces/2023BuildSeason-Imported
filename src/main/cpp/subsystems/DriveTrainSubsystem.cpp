@@ -8,6 +8,8 @@
 #include <frc/shuffleboard/ShuffleboardLayout.h>
 #include <frc/shuffleboard/ShuffleboardTab.h>
 
+#include <iostream>
+
 DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     // Implementation of subsystem constructor goes here.
     SetName("DriveTrain");
@@ -29,8 +31,10 @@ DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp
     m_LeftLeader.ConfigOpenloopRamp(0.2);
     m_LeftFollower.ConfigOpenloopRamp(0.2);
 
-    m_LeftLeader.SetInverted(true);
-    m_LeftFollower.SetInverted(true);
+    m_RightLeader.SetInverted(true);
+    m_RightFollower.SetInverted(true);
+    m_LeftLeader.SetInverted(false);
+    m_LeftFollower.SetInverted(false);
 
     m_DifferentialDrive.SetSafetyEnabled(false);
 
@@ -43,17 +47,19 @@ DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp
 }
 
 void DriveTrainSubsystem::arcadeDrive(double speed, double rotation) {
-
+    std::cout << "Left encoder POS: " << getLeftDist().value() << std::endl;
+    std::cout << "Right encoder POS: " << getRightDist().value() << std::endl;
     m_DifferentialDrive.ArcadeDrive(speed, rotation, false);
-
 }
 
 // Now fully drives with left joystick
 // Y axis is forward/backwards
 // X axis is right/left
 void DriveTrainSubsystem::driveWithController() {
-  m_controllerDriveSpeed = (mp_Controller->GetLeftTriggerAxis() - mp_Controller->GetRightTriggerAxis()) * m_DriveSpeedMult;
-  m_controllerRotation = mp_Controller->GetLeftX() * m_RotationSpeedMult;
+  std::cout << "Left encoder POS: " << getLeftDist().value() << std::endl;
+    std::cout << "Right encoder POS: " << getRightDist().value() << std::endl;
+  m_controllerDriveSpeed = -1* (mp_Controller->GetLeftTriggerAxis() - mp_Controller->GetRightTriggerAxis()) * m_DriveSpeedMult;
+  m_controllerRotation = -1 * mp_Controller->GetLeftX() * m_RotationSpeedMult;
   m_DifferentialDrive.ArcadeDrive(m_controllerDriveSpeed, m_controllerRotation, false);
 }
 

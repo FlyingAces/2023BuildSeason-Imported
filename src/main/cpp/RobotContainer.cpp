@@ -21,7 +21,7 @@ RobotContainer::RobotContainer() {
   // Auto
   m_AutoMode.SetDefaultOption("Default", new frc2::PrintCommand("Default"));
   m_AutoMode.AddOption("None", new frc2::PrintCommand("No Auto"));
-  //m_AutoMode.AddOption("Middle Without Score", new MiddleAutoNoScore(&m_DriveTrain, &m_Gyro));
+  m_AutoMode.AddOption("Go Forward", new MiddleAutoNoScore(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Blue Short Without Score", new BlueShortAutoNoScore(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Blue Long Without Score", new BlueLongAutoNoScore(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Red Short Without Score", new RedShortAutoNoScore(&m_DriveTrain, &m_Gyro));
@@ -30,10 +30,11 @@ RobotContainer::RobotContainer() {
   frc::Shuffleboard::GetTab("Drive").Add("AutoMode", m_AutoMode).WithWidget(frc::BuiltInWidgets::kComboBoxChooser);
 }
 
-void RobotContainer::ConfigureButtonBindings() {
+void RobotContainer::ConfigureButtonBindings() { 
   // Configure your button bindings here
   m_DriverAButton.OnTrue(&m_ToggleDriveMode);
-  m_DriverBButton.WhileTrue(new PIDArmExtension(&m_ArmSubsystem, 1));
+  m_DriverBButton.OnTrue(new DriveStraightPID(&m_DriveTrain, 1_m));
+  m_DriverYButton.WhileTrue(&m_PIDLevel);
 }
 
 // Runs when auto starts

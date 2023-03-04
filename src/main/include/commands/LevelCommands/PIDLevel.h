@@ -9,11 +9,11 @@
 #include "subsystems/GyroSubsystem.h"
 
 namespace PID_LEVEL_CONST {
-    const double L_P = 0.007;
+    const double L_P = 0.05;
     const double L_I = 0;
     const double L_D = 0;
 
-    const double L_DEG_TOL = 3;
+    const double L_DEG_TOL = 1;
     const double L_ACEL_TOL = 1;
 }
 
