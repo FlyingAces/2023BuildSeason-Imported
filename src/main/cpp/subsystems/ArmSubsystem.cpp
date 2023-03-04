@@ -1,5 +1,7 @@
 #include "subsystems/ArmSubsystem.h"
 
+#include <iostream>
+
 ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     SetName("ArmSubsystem");
     SetSubsystem("ArmSubystem");
