@@ -52,7 +52,7 @@ namespace ARM_PID_CONST
     const double EXTEND_A_TOL = 0.1;
 
     // Tilt Mechanism PID values
-    const double TILT_P = 0.01;
+    const double TILT_P = 0.1;
     const double TILT_I = 0;
     const double TILT_D = 0;
     

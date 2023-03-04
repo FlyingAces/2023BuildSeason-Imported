@@ -33,6 +33,7 @@ RobotContainer::RobotContainer() {
 void RobotContainer::ConfigureButtonBindings() { 
   // Configure your button bindings here
   m_DriverAButton.OnTrue(&m_ToggleDriveMode);
+  m_DriverYButton.WhileTrue(new PIDArmTilt(&m_ArmSubsystem, 2));
 }
 
 // Runs when auto starts
