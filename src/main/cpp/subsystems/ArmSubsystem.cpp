@@ -1,7 +1,5 @@
 #include "subsystems/ArmSubsystem.h"
 
-#include <iostream>
-
 ArmSubsystem::ArmSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     SetName("ArmSubsystem");
     SetSubsystem("ArmSubystem");
@@ -78,13 +76,10 @@ void ArmSubsystem::moveArmWithController() {
 
     if(getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MAX && getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(extendWithController);
-        std::cout << " I AM DRIVING NORMALLY" << std::endl;
     } else if (getExtentionMotorEncoderPOS() < ARM_CONST::EXTEND_MIN) {
         runExtentionMotor(0.3);
-        std::cout << " I AM AUTO EXTENDING" << std::endl;
     } else if (getExtentionMotorEncoderPOS() > ARM_CONST::EXTEND_MAX) {
-        runExtentionMotor(-0.3);
-        std::cout << " I AM AUTO PULLING IN" << std::endl;
+        runExtentionMotor(-0.2);
     }
     if(getTiltMotorEncoderPOS() < ARM_CONST::TILT_MAX && getTiltMotorEncoderPOS() >= ARM_CONST::TILT_MIN) {
        runTiltMotor(tiltWithController);
@@ -103,5 +98,4 @@ void ArmSubsystem::moveArmWithController() {
     } else {
         runClawMotor(0.2);
     }
-    std::cout << "extend POS: " << getExtentionMotorEncoderPOS() << std::endl;
 }
