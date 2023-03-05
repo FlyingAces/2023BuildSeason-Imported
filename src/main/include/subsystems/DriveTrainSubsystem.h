@@ -69,7 +69,7 @@ namespace PID_DRIVE_CONSTANTS {
     // Max distance tolerance for stoping the loop
     const auto DIST_TOLERANCE = 0.3_m;
     // Max acceleration tolerance for stopping the loop
-    const auto ACCEL_TOLERANCE = 0.0_mps;
+    const auto ACCEL_TOLERANCE = 0.1_mps;
     // Max driving speed 
     // originally 1
     const auto MAX_SPEED = 3_mps;

@@ -21,6 +21,7 @@ RobotContainer::RobotContainer() {
   m_AutoMode.SetDefaultOption("Default", new frc2::PrintCommand("Default"));
   m_AutoMode.AddOption("None", new frc2::PrintCommand("No Auto"));
   m_AutoMode.AddOption("Go Forward", new MiddleAutoNoScore(&m_DriveTrain, &m_Gyro));
+  m_AutoMode.AddOption("Auto Dock", new AutoDock(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Blue Short Without Score", new BlueShortAutoNoScore(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Blue Long Without Score", new BlueLongAutoNoScore(&m_DriveTrain, &m_Gyro));
   //m_AutoMode.AddOption("Red Short Without Score", new RedShortAutoNoScore(&m_DriveTrain, &m_Gyro));

@@ -23,6 +23,7 @@
 
 #include "commands/AimingCommands/VisionAim.h"
 
+#include "commands/AutoCommands/AutoDock.h"
 #include "commands/AutoCommands/MiddleAutoNoScore.h"
 #include "commands/AutoCommands/BlueShortAutoNoScore.h"
 #include "commands/AutoCommands/BlueLongAutoNoScore.h"
