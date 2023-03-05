@@ -8,6 +8,8 @@
 #include <frc/shuffleboard/ShuffleboardLayout.h>
 #include <frc/shuffleboard/ShuffleboardTab.h>
 
+#include <iostream>
+
 DriveTrainSubsystem::DriveTrainSubsystem(frc::XboxController* p_Controller) : mp_Controller{p_Controller} {
     // Implementation of subsystem constructor goes here.
     SetName("DriveTrain");
@@ -88,10 +90,12 @@ void DriveTrainSubsystem::toggleDriveMode(){
 }
 
 units::meter_t DriveTrainSubsystem::getLeftDist() {
+  std::cout << "LEFT EN: " << ((m_LeftLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M))<< std::endl;
   return units::meter_t((m_LeftLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M));
 }
 
 units::meter_t DriveTrainSubsystem::getRightDist() {
+  std::cout << "RIGHT EN:" << ((m_RightLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M));
   return units::meter_t((m_RightLeader.GetSelectedSensorPosition()/(DT_CONSTANTS::PULSES_PER_REV*DT_CONSTANTS::GEAR_RATIO)) * (DT_CONSTANTS::PI*DT_CONSTANTS::WHEEL_DIAMETER_M));
 }
 

@@ -29,7 +29,7 @@ namespace DT_CONSTANTS {
     // The amount of encoder pulses produced per revolution of the motors
     const int PULSES_PER_REV = 2048;
     // The number of motor revolutions per revolution of the drive train wheels
-    const double GEAR_RATIO = 4;
+    const double GEAR_RATIO = 12;
     // The ratio between the circumfrence of a circle diveded by the diamer
     // Better known as half of Tau :)
     const double PI = 3.1415926535897932;
@@ -63,13 +63,13 @@ namespace PID_TURN_CONSTANTS {
 
 namespace PID_DRIVE_CONSTANTS {
     // PID constatns
-    const double DRIVE_P = 0.8;
+    const double DRIVE_P = 0.6;
     const double DRIVE_I = 0.0;
     const double DRIVE_D = 0.0;
     // Max distance tolerance for stoping the loop
-    const auto DIST_TOLERANCE = 0.1_m;
+    const auto DIST_TOLERANCE = 0.3_m;
     // Max acceleration tolerance for stopping the loop
-    const auto ACCEL_TOLERANCE = 0.05_mps;
+    const auto ACCEL_TOLERANCE = 0.0_mps;
     // Max driving speed 
     // originally 1
     const auto MAX_SPEED = 3_mps;
