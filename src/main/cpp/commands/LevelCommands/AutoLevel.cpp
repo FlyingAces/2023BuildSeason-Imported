@@ -6,9 +6,7 @@ AutoLevel::AutoLevel(DriveTrainSubsystem* p_DriveTrain, GyroSubsystem* p_Gyro) :
     AddRequirements(p_Gyro);
 }
 
-void AutoLevel::Initialize() {
-    mp_DriveTrain->setAutoState(true);
-}
+void AutoLevel::Initialize() {}
 
 void AutoLevel::Execute() {
     balanceError = mp_Gyro->getPitch();
